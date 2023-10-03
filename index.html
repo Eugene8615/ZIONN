@@ -18,10 +18,10 @@
                 </div>
                 <nav>       
                     <ul class="menu">
-                        <li class="menu-item"><a href="">DOKUMENTY FIRMY</a></li>
-                        <li class="menu-item"><a href="">LICENCJA</a></li>
-                        <li class="menu-item"><a href="">UBEZPIECZENIE</a></li>
-                        <li class="menu-item"><a href="">KONTAKT</a></li>
+                        <li class="menu-item"><a href="#" id="open-documents">DOKUMENTY FIRMY</a></li>
+                        <li class="menu-item"><a href="#" id="open-license">LICENCJA</a></li>
+                        <li class="menu-item"><a href="#" id="open-ubezpieczenie">UBEZPIECZENIE</a></li>
+                        <li class="menu-item"><a href="#" id="open-contacts">KONTAKT</a></li>
                         <li>
                             <select class="lng-select" id="language-select">
                                 <option value="pl">PL</option>
@@ -76,6 +76,60 @@
             </div>
         </div>
     </footer>
+
+    <div id="modal-documents" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-documents">&times;</span>
+            <img class="modal-img" src="./images/firm1.png" alt="">
+            <img class="modal-img" src="./images/firm2.png" alt="">
+            <img class="modal-img" src="./images/firm3.png" alt="">
+            <img class="modal-img" src="./images/firm4.png" alt="">
+            <img class="modal-img" src="./images/firm5.png" alt="">
+            <img class="modal-img" src="./images/firm6.png" alt="">          
+        </div>
+    </div>
+    
+    <div id="modal-license" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-license">&times;</span>
+            <img class="modal-img" src="./images/LICENSE.jpg" alt="">
+        </div>
+    </div>
+
+    <div id="modal-ubezpieczenie" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-ubezpieczenie">&times;</span>
+            <img class="modal-img" src="./images/INSURANCE1.jpg" alt="">
+            <img class="modal-img" src="./images/INSURANCE2.jpg" alt="">
+            <img class="modal-img" src="./images/INSURANCE3.jpg" alt="">
+            <img class="modal-img" src="./images/INSURANCE4.jpg" alt="">
+            <img class="modal-img" src="./images/INSURANCE5.jpg" alt="">
+
+        </div>
+    </div>
+
+    <div id="modal-contacts" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-contacts">&times;</span>
+             <div>
+                <div class="contacts-modals">
+                    <ul>
+                        <h1 class="h1-modal">KONTAKT</h1>
+                        <li><a class="modal-text" id="contact-phone" href="tel: +48690056215">Tel: +48690056215</a></li>
+                        <li><a class="modal-text" id="contact-fax" href="fax: +48690056215">Fax:+48690056215</a></li> 
+                        <li><a class="modal-text" id="contact-email" href="mailto:zionn@onet.pl">E- Mail: zionn@onet.pl </a></li>              
+                    </ul>
+                    <div>
+                        <ul>
+                            <li id="address-hours" class="modal-text">Godziny Otwarcia<br>Poniedziałek- Piątek </br>09.00-17.00</li>
+                            
+
+                            <li id="address-location"><a class="modal-text" href="https://maps.app.goo.gl/v122tDuvWsN2TBAZA" target="blank"> Adres: Zionn ul. Szlak 77/222, 31-153 Kraków</a></li>
+                        </ul>
+                    </div>
+             </div>
+        </div>
+    </div>
 
     <script>
         // Загрузка переводов на основе выбранного языка
@@ -159,6 +213,54 @@ document.getElementById('language-select').addEventListener('change', function (
     localStorage.setItem('selectedLanguage', currentLanguage); // Сохраняем выбранный язык в локальное хранилище
     loadTranslations();
 });
+
+// Функция для открытия модального окна
+function openModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
+
+// Функция для закрытия модального окна
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+// Привяжите функции открытия и закрытия к пунктам меню
+document.querySelector('.menu-item:nth-child(1) a').addEventListener('click', function () {
+    openModal('modal-documents');
+});
+
+document.querySelector('.menu-item:nth-child(2) a').addEventListener('click', function () {
+    openModal('modal-license');
+});
+
+// Привяжите функции закрытия к кнопкам "закрыть" в модальных окнах
+document.getElementById('close-documents').addEventListener('click', function () {
+    closeModal('modal-documents');
+});
+
+document.getElementById('close-license').addEventListener('click', function () {
+    closeModal('modal-license');
+});
+
+document.querySelector('.menu-item:nth-child(3) a').addEventListener('click', function () {
+    openModal('modal-ubezpieczenie');
+});
+
+document.getElementById('close-ubezpieczenie').addEventListener('click', function () {
+    closeModal('modal-ubezpieczenie');
+});
+
+document.querySelector('.menu-item:nth-child(4) a').addEventListener('click', function () {
+    openModal('modal-contacts');
+});
+
+document.getElementById('close-contacts').addEventListener('click', function () {
+    closeModal('modal-contacts');
+});
+// Добавьте аналогичные действия для других пунктов меню и модальных окон
+
     </script>
 
 </body>
