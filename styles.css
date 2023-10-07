@@ -33,7 +33,7 @@ ul, li {
 
 /* Общие стили для контейнера */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
@@ -351,6 +351,10 @@ footer {
         display: flex;
         padding-top: 40px;
         padding-bottom: 40px;
+    }
+
+    .address-items {
+        margin-right: 50px;
     }
 
     .modal-content {
